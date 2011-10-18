@@ -1,7 +1,15 @@
 ﻿@model Biblioteca.Modelos.Usuario
 @{
-    ViewBag.Title = "Home";
+    ViewBag.Title = Model;
 }
 
-<h2>Home - @ViewBag.Testando</h2>
-<p>@Model.Nome</p>
+@if(Model != null) {
+    <p>@Model</p> 
+}
+else {
+    <p>User not found!</p> 
+}
+
+<hr />
+
+@Html.Partial("_ListaDeTuitis", Model.Tuitis)

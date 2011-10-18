@@ -19,17 +19,8 @@ namespace MvcApp.Controllers
         public ActionResult CarregarUsuarioPorApelido(string apelido)
         {
             var usuario = db.Usuarios.SingleOrDefault(u => u.Apelido == apelido);
-            ViewBag.Testando = "uma variavel de teste.";
             return View("Home", usuario);
         }
-
-        public ViewResult Index()
-        {
-            return View(db.Usuarios.ToList());
-        }
-
-        //
-        // GET: /Usuario/Details/5
 
         public ViewResult Details(int id)
         {
@@ -37,16 +28,10 @@ namespace MvcApp.Controllers
             return View(usuario);
         }
 
-        //
-        // GET: /Usuario/Create
-
         public ActionResult Create()
         {
             return View();
         } 
-
-        //
-        // POST: /Usuario/Create
 
         [HttpPost]
         public ActionResult Create(Usuario usuario)
@@ -61,17 +46,11 @@ namespace MvcApp.Controllers
             return View(usuario);
         }
         
-        //
-        // GET: /Usuario/Edit/5
- 
         public ActionResult Edit(int id)
         {
             Usuario usuario = db.Usuarios.Find(id);
             return View(usuario);
         }
-
-        //
-        // POST: /Usuario/Edit/5
 
         [HttpPost]
         public ActionResult Edit(Usuario usuario)
@@ -84,18 +63,12 @@ namespace MvcApp.Controllers
             }
             return View(usuario);
         }
-
-        //
-        // GET: /Usuario/Delete/5
  
         public ActionResult Delete(int id)
         {
             Usuario usuario = db.Usuarios.Find(id);
             return View(usuario);
         }
-
-        //
-        // POST: /Usuario/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)

@@ -22,5 +22,10 @@ namespace Biblioteca.Modelos
         [Required]
         public string Senha { get; set; }
         public virtual List<Tuiti> Tuitis { get; set; }
+
+        public override string ToString()
+        {
+            return Nome;
+        }
     }
 }
