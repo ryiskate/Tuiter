@@ -20,6 +20,7 @@ namespace MvcApp
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
             routes.MapRoute("Home", "", new { controller = "Home", action = "index" });
             routes.MapRoute("HomeDoUsuario", "{apelido}", new { controller = "Usuario", action = "CarregarUsuarioPorApelido", apelido = UrlParameter.Optional });
             routes.MapRoute(
