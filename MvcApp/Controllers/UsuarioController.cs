@@ -22,6 +22,23 @@ namespace MvcApp.Controllers
             return View("Home", usuario);
         }
 
+        public ActionResult CriarTuiti(string textoDoTuiti, int idDoUsuario)
+        {
+            var novoTuiti = new Tuiti();
+            novoTuiti.Texto = textoDoTuiti;
+            novoTuiti.DataDeCriacao = DateTime.Now;
+
+            var usuario = db.Usuarios.Single(u => u.Id == idDoUsuario);
+            usuario.Tuitis.Add(novoTuiti);
+
+            db.SaveChanges();
+
+            return View("Home", usuario);
+
+        }
+
+        //gerado
+
         public ViewResult Details(int id)
         {
             Usuario usuario = db.Usuarios.Find(id);

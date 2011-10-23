@@ -11,5 +11,10 @@ else {
 }
 
 <hr />
+@using (Html.BeginForm("CriarTuiti", "Usuario")) {
+    @Html.TextArea("textoDoTuiti")
+    @Html.Hidden("idDoUsuario", Model.Id)
+    <input type="submit" value="tuitar" />
+}
 
 @Html.Partial("_ListaDeTuitis", Model.Tuitis)
